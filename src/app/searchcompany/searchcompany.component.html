@@ -1,0 +1,30 @@
+<!--<input type="text" id="citysearch" name="citysearch" style="border: 1px solid black;" placeholder="Enter company"  
+[(ngModel)]="searchTerm" />
+
+<ul *ngFor="let company of filteredCompanies" class="col-lg-2 col-md-3 col-sm-6">
+  {{company.companyName}}
+</ul>
+-->
+
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      
+
+
+      <select id="partsdropdown" (change)="getpartid($event)">
+        <option *ngFor="let part of parts" value={{part.id}} id={{part.id}}>
+          {{part.partName}}
+        </option>
+      </select>
+      <select id="companydropdown" (change)="getcompanyid($event)">
+        <option *ngFor="let company of companies" value={{company.id}} id={{company.id}}>
+          {{company.companyName}}
+        </option>
+      </select>
+    <button type="button" (click)="AddAssociation()">Add Eligibility</button>
+    <button type="button" (click)="RemoveAssociation()">Remove Eligibility</button>
+    </div>
+  </div>
+</div>

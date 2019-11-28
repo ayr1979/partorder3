@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <div class="row">
+    <h1 class="sentence">{{part.partDescription}} Details</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{part?.photoUrl || '../../../assets/user.png'}}">
+        <div class="card-body">
+          <div>
+            <strong>Location:</strong>
+            <p>{{part.partUrl}}, {{part.sku}}</p>
+          </div>
+          
+          <!--
+          <div>
+            <strong>Age:</strong>
+            <p>{{user.age}}</p>
+          </div>
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{user.lastActive | timeAgo}}</p>
+          </div>
+          <div>
+            <strong>Member Since:</strong>
+            <p>{{user.created | date: 'mediumDate'}}</p>
+          </div>-->
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex text-center">
+            <!--<button class="btn btn-primary w-100">Like</button>-->
+            <button class="btn btn-success" (click)="selectTab(3)">Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset" #memberTabs>
+          <tab heading="About {{part.partDescription}}">
+            {{part.partDescription}}
+            <h4>URL</h4>
+            {{part.partUrl}}
+            <h4>SKU</h4>
+            {{part.sku}}
+          </tab>
+          <tab heading="Photos">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>
