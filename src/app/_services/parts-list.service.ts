@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { partslist } from '../_models/partslist';
 import {CompanyPart} from '../_models/companypart';
 import { PaginatedResult } from '../_models/pagination';
+
 import { map, partition } from 'rxjs/operators';
 
 @Injectable({
@@ -24,6 +25,8 @@ export class PartsListService {
   addPartToCompany(companypart: CompanyPart) {
     return this.http.post(this.baseUrl + 'orderpart/newcompanypart', companypart);
   }
+
+
 
   getPart(id: number): Observable<partslist> {
     return this.http.get<partslist>(this.baseUrl + 'orderpart/' + id);
